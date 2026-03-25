@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 Research Agent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-inner">
+                <h1>🔬 RESEARCH AGENT</h1>
+                <p class="tagline">AI-powered research with deep insights</p>
+            </div>
+            <div class="model-selector">
+                <label>Model:</label>
+                <select id="model-dropdown">
+                    <!-- Models will be populated by JS -->
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <div class="search-controls">
+                <input type="text" id="topic-input" placeholder="Enter a research topic..." autocomplete="off">
+                <div class="button-group">
+                    <button id="research-button" class="primary-button">Research ▶</button>
+                    <button id="stop-button" class="danger-button hidden">Stop ⏹️</button>
+                </div>
+            </div>
+
+            <div class="depth-control">
+                <span>Quick</span>
+                <input type="range" id="depth-slider" min="1" max="5" value="2">
+                <span>Deep</span>
+            </div>
+
+            <div class="content-area">
+                <div class="panel agent-log-panel">
+                    <h2>📋 AGENT LOG</h2>
+                    <div id="agent-log" class="log-container"></div>
+                </div>
+                <div class="panel research-report-panel">
+                    <div class="report-header">
+                        <h2>📄 RESEARCH REPORT</h2>
+                        <button id="copy-button" class="hidden">📋 Copy</button>
+                    </div>
+                    <div id="report-output" class="report-container">
+                        <div class="placeholder">
+                            <div class="placeholder-icon">📊</div>
+                            <p>Your research report will appear here</p>
+                            <p style="font-size: 0.85em; color: var(--text-secondary);">Enter a topic and click Research to begin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sources-panel-container">
+                <button id="sources-toggle">📚 SOURCES ▼</button>
+                <div id="sources-content" class="hidden">
+                    <!-- Sources will be populated by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <aside class="sidebar">
+        <h3>📚 RECENT</h3>
+        <div id="history-list" class="history-list"></div>
+        <button id="clear-history-button">🗑️ Clear History</button>
+    </aside>
+
+    <div id="error-banner" class="hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
